@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yo'l belgilari guruhlari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Yo'l belgilari guruhlari</h1>
+        <a href="index.html" class="back-link">← Bosh sahifaga qaytish</a>
+    </header>
+
+    <!-- Guruhlar ro'yxati -->
+    <section class="groups" id="groupsView">
+        <div class="group-card" onclick="openGroup(1)">
+            <div class="group-number">1</div>
+            <div class="group-title">Ogohlantiruvchi belgilar</div>
+        </div>
+        <div class="group-card" onclick="openGroup(2)">
+            <div class="group-number">2</div>
+            <div class="group-title">Imtiyoz belgilari</div>
+        </div>
+        <div class="group-card" onclick="openGroup(3)">
+            <div class="group-number">3</div>
+            <div class="group-title">Taqiqlovchi belgilar</div>
+        </div>
+        <div class="group-card" onclick="openGroup(4)">
+            <div class="group-number">4</div>
+            <div class="group-title">Buyuruvchi belgilar</div>
+        </div>
+        <div class="group-card" onclick="openGroup(5)">
+            <div class="group-number">5</div>
+            <div class="group-title">Axborot-ishora belgilari</div>
+        </div>
+        <div class="group-card" onclick="openGroup(6)">
+            <div class="group-number">6</div>
+            <div class="group-title">Servis belgilari</div>
+        </div>
+        <div class="group-card" onclick="openGroup(7)">
+            <div class="group-number">7</div>
+            <div class="group-title">Transport vositalarining taniqlik belgilari</div>
+        </div>
+        <div class="group-card" onclick="openGroup(8)">
+            <div class="group-number">8</div>
+            <div class="group-title">Qo'shimcha axborot belgilari</div>
+        </div>
+    </section>
+
+    <!-- Tanlangan guruh belgilari -->
+    <section class="signs-section" id="signsView">
+        <a href="#" class="back-link" onclick="closeGroup(); return false;" style="display:block; text-align:center; margin-bottom:10px;">← Guruhlar ro'yxatiga qaytish</a>
+        <h2 id="signsTitle"></h2>
+        <div class="signs-grid" id="signsGrid"></div>
+        <p class="empty-note" id="emptyNote" style="display:none;">
+            Bu guruh uchun belgilar hali qo'shilmagan.
+        </p>
+    </section>
+
+    <script src="signs-data.js"></script>
+    <script>
+        function openGroup(id) {
+            const group = signsData[id];
+            document.getElementById('groupsView').style.display = 'none';
+            const view = document.getElementById('signsView');
+            view.classList.add('active');
+            document.getElementById('signsTitle').textContent = group.title;
+
+            const grid = document.getElementById('signsGrid');
+            const emptyNote = document.getElementById('emptyNote');
+            grid.innerHTML = '';
+
+            if (!group.signs || group.signs.length === 0) {
+                emptyNote.style.display = 'block';
+            } else {
+                emptyNote.style.display = 'none';
+                group.signs.forEach(sign => {
+                    const item = document.createElement('div');
+                    item.className = 'sign-item';
+                    const hasImg = sign.img && sign.img.trim() !== '';
+                    const imgPart = hasImg
+                        ? `<img src="${sign.img}" alt="${sign.name}"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                           <div class="sign-img-fallback" style="display:none;">${sign.num || '🚧'}</div>`
+                        : `<div class="sign-img-fallback" style="display:flex;">${sign.num || '🚧'}</div>`;
+                    item.innerHTML = `
+                        <div class="sign-img-wrap">${imgPart}</div>
+                        <div class="sign-num">${sign.num || ''}</div>
+                        <div class="sign-name">${sign.name || ''}</div>
+                    `;
+                    grid.appendChild(item);
+                });
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function closeGroup() {
+            document.getElementById('signsView').classList.remove('active');
+            document.getElementById('groupsView').style.display = 'grid';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
