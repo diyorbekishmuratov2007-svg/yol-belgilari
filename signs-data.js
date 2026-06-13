@@ -248,24 +248,7 @@ const signsData = {
         ]
     },
     7: {
-        title: "7. Transport vositalarining taniqlik belgilari",
-        signs: [
-            { num: "7.1",  img: "images/transport-taniqlik/7.1.png",  name: "Avtopoyezd" },
-            { num: "7.2",  img: "images/transport-taniqlik/7.2.png",  name: "Turkumlangan shina o'rnatilgan transport vositasi" },
-            { num: "7.3",  img: "images/transport-taniqlik/7.3.png",  name: "Boshqarishni o'rgatish transport vositasi" },
-            { num: "7.4",  img: "images/transport-taniqlik/7.4.png",  name: "Kar-soqov yoki kar haydovchi boshqarayotgan avtomobil" },
-            { num: "7.5",  img: "images/transport-taniqlik/7.5.png",  name: "Bolalar guruhi tashilayotgan transport vositasi" },
-            { num: "7.6",  img: "images/transport-taniqlik/7.6.png",  name: "Nogiron haydovchi boshqarayotgan avtomobil" },
-            { num: "7.7",  img: "images/transport-taniqlik/7.7.png",  name: "Shifokor haydovchi boshqarayotgan avtomobil" },
-            { num: "7.8",  img: "images/transport-taniqlik/7.8.png",  name: "Xavfli yuk tashiyotgan avtomobil" },
-            { num: "7.9",  img: "images/transport-taniqlik/7.9.png",  name: "Tezligi cheklangan" },
-            { num: "7.10", img: "images/transport-taniqlik/7.10.png", name: "Katta o'lchamli yuk" },
-            { num: "7.11", img: "images/transport-taniqlik/7.11.png", name: "Falokat sababli to'xtash" },
-            { num: "7.12", img: "images/transport-taniqlik/7.12.png", name: "Uzun o'lchamli transport vositasi" }
-        ]
-    },
-    8: {
-        title: "8. Qo'shimcha axborot belgilari",
+        title: "7. Qo'shimcha axborot belgilari",
         signs: [
             { num: "7.1.1", img: "images/qoshimcha-axborot/7.1.1.png", name: "Manzilgacha bo'lgan masofa" },
             { num: "7.1.2", img: "images/qoshimcha-axborot/7.1.2.png", name: "Manzilgacha bo'lgan masofa" },
